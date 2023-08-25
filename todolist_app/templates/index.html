@@ -6,25 +6,26 @@
 
 {% block content %}
 
-    <div class = "container"> 
-       <div class="row mt-5">
-         <div class="col-lg-4">
+<div class="container"> 
+      <div class="row mt-5 justify-content-center">
+         <div class="col-lg d-none d-lg-flex justify-content-end">
             <img src="{% static 'images/note_picture.jpg' %}" alt="note picture" class="rounded-lg shadow-" width="244" height="350">
-            </div>
-         <div class="col-lg-4">
+         </div>
+         <div class="col-12 col-lg text-center">
             <img src="{% static 'images/note_picture.jpg' %}" alt="note picture" class="rounded-lg shadow" width="244" height="350">
-            </div>
-         <div class="col-lg-4">
-            <img src="{% static 'images/note_picture.jpg' %}" alt="note picture" class="rounded-lg shadow-sm" width="244" height="350">
-            </div>
-       </div>
+         </div>
+         <div class="col-lg d-none d-lg-flex justify-content-start">
+            <img src="{% static 'images/note_picture.jpg' %}" alt="note picture" class="rounded-lg shadow" width="244" height="350">
+         </div>
+      </div>
 
-       <div class="row mt-5">
-        <div class=" col-md-10 offset-md-1">
-            <center><p class="h1 text-primary">C.O.R.E. Services, LLC - Task Tracker</p></center>
-            <center><p class="h2 mt-3 text-primary">Keep Track of Everything</p></center>
-            <center><a href="{% url 'login' %}"> <button class="btn btn-primary btn-lg mt-3 shadow">Get Started</button></a></center>
-        </div> 
-       </div>
-    </div>
+      <div class="row mt-5">
+         <div class="col-md-10 offset-md-1 text-center">
+             <p class="h1 text-primary">C.O.R.E. Services, LLC - Task Tracker</p>
+             <p class="h2 mt-3 text-primary">Keep Track of Everything</p>
+             <a href="{% url 'login' %}"><button class="btn btn-primary btn-lg mt-3 shadow">Get Started</button></a>
+         </div> 
+     </div>
+
+ </div>
 {% endblock content %}
