@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title> Edit Task- Taskmate </title>
+{% endblock title %}
+
+{% block content %}
+<h1 class="text-center"> EDIT TASK </h1>
+<div class="container"> 
+</br>
+<!-- Form for Undo Complete -->
+{% if task_obj.manage == request.user %}
+<form method="POST" action="{% url 'pending_task' task_obj.id %}" class="row" style='margin-top: 5rem'>
+    {% csrf_token %}
+    <div class="col-2">
+        <button type="submit" class="btn btn-info btn-sm">Undo Complete</button>
+    </div>
+</form>
+{% else %}
+    <p>Access Restricted</p>
+{% endif %}
+<!-- Form for Updating the Task -->
+{% if task_obj.manage == request.user %}
+<form method="POST" action="{% url 'edit_task' task_obj.id %}" class="row" style='margin-top: 2rem'>
+    {% csrf_token %}
+    <div class="col-6">
+        <input type="text" class="form-control col-lg-6" name="task" placeholder="{{ task_obj.task }}" value="{{ task.obj.task }}">
+    </div>
+    <div class="col-1">
+        <input type="hidden" name="done" value="{{ task_obj.done }}">
+    </div>
+    <div class="col-2">
+        <button type="submit" class="btn btn-primary btn-sm">Update Task</button>
+    </div>
+</form>
+{% else %}
+   <p>Access Restricted</p>
+{% endif %}
+</div>
+
+{% endblock content %}
